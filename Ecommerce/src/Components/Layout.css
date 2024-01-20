@@ -1,0 +1,28 @@
+.navbar{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+.navbar h3{
+    margin: 0px;
+    padding: auto;
+}
+.navbar .left{
+
+    display: flex;
+
+    width: 35vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .right{
+    display: flex;
+    padding-right: 70px;
+
+    width: 15vw;
+    justify-content: space-between;
+    align-items: center;
+
+}
