@@ -36,12 +36,16 @@ const spanStyle = {
 
 function About(){
 
+function handleclick(){
 
+    console.log("fired");
+    document.getElementById('about').scrollIntoView();
+}
 
 
     return(
         <>
-        <div className="about-container">
+        <div className="about-container" id='about'>
             <div className="heading">
                 <h1>About us</h1>
             </div>
@@ -86,7 +90,7 @@ function About(){
                 </div>
             </div>
 
-            <button><img src={cart} height={'30px'}/>Start Shopping</button>
+            <button onClick={()=>{handleclick()}}><img src={cart} height={'30px'}/>Start Shopping</button>
 
             </div>
         </div>
