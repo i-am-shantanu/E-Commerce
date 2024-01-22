@@ -1,9 +1,10 @@
+import Collapsible from "../Utility_Components/Collapsible"
 
 function Contact(){
 
     return(
         <>
-        <h1>Contact</h1>
+    
         </>
     )
 }
