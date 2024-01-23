@@ -2,7 +2,7 @@
 import {useState} from 'react'
 function Collapsible(
     {
-        content,
+        content={},
         contentHeight = '200px',
         containerWidth='35vw'
     }
@@ -22,7 +22,10 @@ function Collapsible(
     const buttonStyle={
         width:'100%',
         border:'none',
-        fontWeight:'bold'
+        fontWeight:'bold',
+        backgroundColor:'#fff7ed',
+        fontSize:'large',
+        borderRadius:'10px'
     };
     const contentStyle={
         overflow:'hidden',
@@ -32,10 +35,10 @@ function Collapsible(
     return(
         <>
         <div className="collapsible-container" style={collapsibleContainerStyle}>
-            <button onClick={handleClick} style={buttonStyle}>Faq</button>
+            <button onClick={handleClick} style={buttonStyle}>{content.title}</button>
             <div className="content" style={{...contentStyle,maxHeight:height}}>
                 <p>
-                    {content}
+                    {content.text}
                 </p>
             </div>
         </div>
