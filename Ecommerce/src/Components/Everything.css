@@ -1,0 +1,33 @@
+.everything-container{
+    display: flex;
+    padding: 50px 0px;
+}
+
+.everything-container .left{
+width:300px;
+height:500px;
+border-right: 1px solid grey;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+
+
+}
+
+.everything-container .left form input{
+width: 180px;
+height: 30px;
+border-radius: 50px;
+text-align: center;
+margin-right: 10px;
+}
+
+.everything-container .left form button{
+    width: 60px;
+    height: 30px;
+    background-color: green;
+    color: white;
+    border-radius: 15px;
+
+}

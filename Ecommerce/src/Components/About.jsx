@@ -71,26 +71,26 @@ function handleclick(){
                 <div className="item"><CountUp start={0} end={40} duration={10} /> +<div style={{fontSize:'15pt'}}>Offline Stores</div></div>
             </div>
             <div className="review">
-            <div className="slide-background">
-                <div className="slide-container">
-                    <Slide>
-                    {slideImages.map((slideImage, index)=> (
-                        <div key={index}>
-                        <div style={{ ...divStyle, 'backgroundImage': `url(${slideImage.url})` }}>
-                        </div>
-                        </div>
-                    ))} 
-                    </Slide>
+                <div className="slide-background">
+                    <div className="slide-container">
+                        <Slide>
+                        {slideImages.map((slideImage, index)=> (
+                            <div key={index}>
+                            <div style={{ ...divStyle, 'backgroundImage': `url(${slideImage.url})` }}>
+                            </div>
+                            </div>
+                        ))} 
+                        </Slide>
 
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo nam nemo ratione natus ipsa amet consectetur tenetur.
-                    </p>
-                    <img src={Profile} style={{height:'70px',borderRadius:'100%',float:'left',marginRight:'20px'}}/>
-                    <p style={{paddingTop:'25px'}}>Shantanu Mishra</p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo nam nemo ratione natus ipsa amet consectetur tenetur.
+                        </p>
+                        <img src={Profile} style={{height:'70px',borderRadius:'100%',float:'left',marginRight:'20px'}}/>
+                        <p style={{paddingTop:'25px'}}>Shantanu Mishra</p>
+                    </div>
                 </div>
-            </div>
 
-            <button onClick={()=>{handleclick()}}><img src={cart} height={'30px'}/>Start Shopping</button>
+                <button onClick={()=>{handleclick()}}><img src={cart} height={'30px'}/>Start Shopping</button>
 
             </div>
         </div>

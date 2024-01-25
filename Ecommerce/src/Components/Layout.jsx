@@ -22,7 +22,7 @@ function Layout(){
            </div>
         </div>
         </header>
-        <main>
+        <main style={{backgroundColor: "#f8f6f3"}}>
             <Outlet/>
         </main>
         </>

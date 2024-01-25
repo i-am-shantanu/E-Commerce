@@ -3,6 +3,10 @@
     display: flex;
     justify-content: space-between;
     border: 2px solid black;
+
+}
+.navbar div{
+    flex-shrink: 0;
 }
 .navbar h3{
     margin: 0px;
@@ -11,8 +15,8 @@
 .navbar .left{
 
     display: flex;
-
-    width: 35vw;
+    
+    width: 500px;
     justify-content: space-between;
     align-items: center;
 }
@@ -20,8 +24,8 @@
 .navbar .right{
     display: flex;
     padding-right: 70px;
-
-    width: 15vw;
+    margin-left: 100px;
+    width: 250px;
     justify-content: space-between;
     align-items: center;
 
