@@ -1,21 +1,22 @@
-.everything-container{
-    display: flex;
-    padding: 50px 0px;
-}
+
 
 .everything-container .left{
+margin-top: 100px;
 width:300px;
-height:500px;
+height:600px;
 border-right: 1px solid grey;
 display: flex;
 flex-direction: column;
 justify-content: space-around;
 align-items: center;
+position: sticky;
+top: 150px;
+left: 0px;
 
 
 }
 
-.everything-container .left form input{
+/* .everything-container .left form input{
 width: 180px;
 height: 30px;
 border-radius: 50px;
@@ -30,4 +31,18 @@ margin-right: 10px;
     color: white;
     border-radius: 15px;
 
+} */
+
+.everything-container .left select{
+    border-radius: 5px;
+    width: 200px;
+    height: 20px;
+}
+.everything-container .right{
+    margin-left: 400px
+}
+.red{
+    height: 30vh;
+    background-color: red;
+    margin-top: 50px;
 }
