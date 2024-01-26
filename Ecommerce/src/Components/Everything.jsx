@@ -1,13 +1,14 @@
 import './Everything.css'
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import SearchBar from '../Utility_Components/SearchBar';
+import { performFilter } from '../Features/ProductSlice';
 
 function Everything(){
 
     const[rangeMax,setRangeMax]=useState(400)
     const products=useSelector(state=>state.products.currentProducts)
-
+    const dispatch=useDispatch();
     console.log("rendered");
 
     useEffect(()=>{console.log("invoked!!")},[]);
@@ -18,8 +19,11 @@ function Everything(){
     }
 
     function handleSlider(e){
-        setRangeMax(Number(e.target.value));
-        console.log(Number(e.target.value));
+
+        let temp=Number(e.target.value)
+        setRangeMax(Number(temp));
+        console.log(Number(temp));
+        dispatch(performFilter(temp));
     }
 
     function handleSelector(e){
@@ -50,7 +54,7 @@ function Everything(){
         <div className="right" >
             {
                 products.map((obj)=>(
-                <div className="card">
+                <div className="card" key={obj.id}>
                 <img src={obj.url}/>
                 <h4 style={{margin:'5px 0px',padding:'0px'}}>{obj.category}</h4>
                 <h2 style={{margin:'10px 0px',padding:'0px'}}>{obj.name}</h2>

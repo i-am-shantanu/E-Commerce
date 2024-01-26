@@ -99,6 +99,8 @@ export const ProductSlice=createSlice({
         performFilter :(state,action) =>{
 
             //functionality to perform filter on the list of items
+            state.currentProducts=state.products.filter((obj)=>(obj.price<=action.payload))
+            
         },
 
         searchProducts :(state,action) =>{
