@@ -6,7 +6,6 @@ import SearchBar from '../Utility_Components/SearchBar';
 function Everything(){
 
     const[rangeMax,setRangeMax]=useState(400)
-    const[searchValue,setSearchValue]=useState("")      //state variable to track the input in search bar
     const products=useSelector(state=>state.products.currentProducts)
 
     console.log("rendered");
@@ -36,7 +35,8 @@ function Everything(){
 
             <div className="filter">
                 <h3 style={{color:'green'}}>Filter By price</h3>
-                <input type='range' min={100} max={400} style={{accentColor:'Green'}} value={rangeMax} onChange={(e)=>{handleSlider(e)}}/>
+                <input type='range' min={0} max={400} style={{accentColor:'Green'}} value={rangeMax} onChange={(e)=>{handleSlider(e)}}/>
+                <h3 style={{padding:'2px',backgroundColor:'white',textAlign:'center',borderRadius:'15px'}}>0 - {rangeMax}</h3>
             </div>
 
             <div className='sorting' onChange={handleSelector}>
@@ -48,7 +48,22 @@ function Everything(){
             </div>
         </div>
         <div className="right" >
+            {
+                products.map((obj)=>(
+                <div className="card">
+                <img src={obj.url}/>
+                <h4 style={{margin:'5px 0px',padding:'0px'}}>{obj.category}</h4>
+                <h2 style={{margin:'10px 0px',padding:'0px'}}>{obj.name}</h2>
+                <h3 style={{margin:'0px',padding:'0px'}}>Rs. {obj.price}</h3>
+                </div>
+                ))
+            }
+            
+
         </div>
+        </div>
+        <div className="footer">
+
         </div>
 
         </>
