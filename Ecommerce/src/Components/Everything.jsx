@@ -20,10 +20,10 @@ function Everything(){
 
     function handleSlider(e){
 
-        let temp=Number(e.target.value)
-        setRangeMax(Number(temp));
-        console.log(Number(temp));
-        dispatch(performFilter(temp));
+        let maxprice=Number(e.target.value)
+        setRangeMax(maxprice);
+        console.log(maxprice);
+        dispatch(performFilter({category:"all",maxprice}));
     }
 
     function handleSelector(e){

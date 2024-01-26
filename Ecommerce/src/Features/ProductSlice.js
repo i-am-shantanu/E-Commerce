@@ -37,49 +37,49 @@ const products=[{
 },
 {
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/organic-honey-400x400.jpg",
-    category:"Groceris",
+    category:"Groceries",
     name:"Fresh Organic Honey",
     price:"340",
     id:nanoid()
 },
 {
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/sanitizer-400x400.jpg",
-    category:"Groceris",
+    category:"Groceries",
     name:"Hand Sanitizer",
     price:"150",
     id:nanoid()
 },
 {
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/red-chillies-400x400.jpg",
-    category:"Groceris",
+    category:"Groceries",
     name:"Hand Picked Red Chillies",
     price:"190",
     id:nanoid()
 },
 {
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/edible-oil-400x400.jpg",
-    category:"Groceris",
+    category:"Groceries",
     name:"Natural Extracted Edible Oil",
     price:"250",
     id:nanoid()
 },
 {
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/face-wash-400x400.jpg",
-    category:"Groceris",
+    category:"Groceries",
     name:"Organic Face Scrub",
     price:"350",
     id:nanoid()
 },
 {
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/pulses-400x400.jpg",
-    category:"Groceris",
+    category:"Groceries",
     name:"Pulses from Organic Farm",
     price:"150",
     id:nanoid()
 },
 {
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/wheat-400x400.jpg",
-    category:"Groceris",
+    category:"Groceries",
     name:"Wheat from Organic Farm",
     price:"340",
     id:nanoid()
@@ -99,7 +99,12 @@ export const ProductSlice=createSlice({
         performFilter :(state,action) =>{
 
             //functionality to perform filter on the list of items
-            state.currentProducts=state.products.filter((obj)=>(obj.price<=action.payload))
+            state.currentProducts=state.products.filter((obj)=>{
+                if(action.payload.category==='all')
+                return(obj.price<=action.payload.maxprice)
+                else
+                return ((obj.category===action.payload.category) && (obj.price<=action.payload.maxprice))
+            })
             
         },
 
