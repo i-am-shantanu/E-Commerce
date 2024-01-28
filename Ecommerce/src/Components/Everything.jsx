@@ -2,7 +2,7 @@ import './Everything.css'
 import { useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import SearchBar from '../Utility_Components/SearchBar';
-import { performFilter } from '../Features/ProductSlice';
+import { performFilter, searchProducts, setCurrentByCategory, sortProducts } from '../Features/ProductSlice';
 
 function Everything(){
 
@@ -11,7 +11,7 @@ function Everything(){
     const dispatch=useDispatch();
     console.log("rendered");
 
-    useEffect(()=>{console.log("invoked!!")},[]);
+    useEffect(()=>{dispatch(setCurrentByCategory('all'))},[]);
 
     function handleSearch(e){
         e.preventDefault();
@@ -28,13 +28,20 @@ function Everything(){
 
     function handleSelector(e){
         console.log(e.target.value);
+        dispatch(sortProducts(e.target.value));
+    }
+
+    function handleSearch(e){
+        
+        console.log(e);
+        dispatch(searchProducts({category:'all',text:e}))
     }
     return(
         <>
         <div className="everything-container">
         <div className="left">
             <div>
-                <SearchBar/>
+                <SearchBar handleSearch={handleSearch}/>
             </div>
 
             <div className="filter">

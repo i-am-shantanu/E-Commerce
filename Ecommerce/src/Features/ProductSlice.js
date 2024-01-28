@@ -1,4 +1,4 @@
-import { createSlice,nanoid } from "@reduxjs/toolkit";
+import { createSlice,current,nanoid } from "@reduxjs/toolkit";
 
 const products=[{
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted.jpg",
@@ -111,10 +111,37 @@ export const ProductSlice=createSlice({
         searchProducts :(state,action) =>{
 
             //Update items on the basis of search keywords
+            console.log('fired')
+            let {category,text}=action.payload
+            state.currentProducts=products.filter((obj)=>{
+                if(category==='all')
+                return(obj.name.toLowerCase().includes(text.toLowerCase()))
+                else 
+                return((obj.category===category)&&(obj.name.toLowerCase().includes(text.toLowerCase())));
+            })
+        },
+
+        sortProducts :(state,action) =>{
+
+            //rearrange current product array according to user input
+
+            if(action.payload=="ascending")
+            state.currentProducts.sort((obj1,obj2)=>Number(obj1.price)-Number(obj2.price))
+            else
+            state.currentProducts.sort((obj1,obj2)=>Number(obj2.price)-Number(obj1.price))
+        },
+
+        setCurrentByCategory :(state,action)=>{
+
+            if(action.payload==='all')
+            state.currentProducts=state.products;
+            
+            else 
+            state.currentProducts=state.products.filter((obj)=>obj.category===action.payload)
         }
     }
 })
 
-export const {performFilter,searchProducts}=ProductSlice.actions
+export const {performFilter,searchProducts,sortProducts,setCurrentByCategory}=ProductSlice.actions
 
 export default ProductSlice.reducer

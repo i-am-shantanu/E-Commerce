@@ -65,6 +65,7 @@ flex-shrink: 0;
     margin-bottom: 25px;
     text-wrap: wrap;
     width: 250px;
+    cursor: pointer;
     
 }
 

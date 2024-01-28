@@ -1,8 +1,11 @@
 import { useState } from "react";
 
-function SearchBar(){
+function SearchBar({
+    handleSearch
+}){
 
     const[searchValue,setSearchValue]=useState("");
+    
 
     const inputStyle={
     width: "180px",
@@ -22,14 +25,11 @@ function SearchBar(){
 
     }
 
-    function handleSearch(e){
-        e.preventDefault();
-        console.log(searchValue);
-    }
+    
 
     return(
         <>
-            <form onSubmit={handleSearch} >
+            <form onSubmit={(e)=>{e.preventDefault();handleSearch(searchValue)}} >
                 <input placeholder='Search Products...' value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}}
                 style={inputStyle}></input>
                 <button type='submit' style={buttonStyle}>Search</button>
