@@ -1,4 +1,4 @@
-import { createSlice,current,nanoid } from "@reduxjs/toolkit";
+import { createSlice,current } from "@reduxjs/toolkit";
 
 const products=[{
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted.jpg",
@@ -6,6 +6,7 @@ const products=[{
     name:"Assorted Coffee",
     price:"350",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'10'
 },
 {
@@ -14,6 +15,7 @@ const products=[{
     name:"Cashew Butter",
     price:"250",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'11'
 },
 {
@@ -22,6 +24,7 @@ const products=[{
     name:"Diabetic Cookies",
     price:"250",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'12'
 },
 {
@@ -30,6 +33,7 @@ const products=[{
     name:"Farm Fresh Eggs",
     price:"340",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'1'
 },
 {
@@ -38,6 +42,7 @@ const products=[{
     name:"Fresh Orange Juice",
     price:"180",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'2'
 },
 {
@@ -46,6 +51,7 @@ const products=[{
     name:"Fresh Organic Honey",
     price:"340",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'3'
 },
 {
@@ -54,6 +60,7 @@ const products=[{
     name:"Hand Sanitizer",
     price:"150",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'4'
 },
 {
@@ -62,6 +69,7 @@ const products=[{
     name:"Hand Picked Red Chillies",
     price:"190",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'5'
 },
 {
@@ -70,6 +78,7 @@ const products=[{
     name:"Natural Extracted Edible Oil",
     price:"250",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'6'
 },
 {
@@ -78,6 +87,7 @@ const products=[{
     name:"Organic Face Scrub",
     price:"350",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'7'
 },
 {
@@ -86,6 +96,7 @@ const products=[{
     name:"Pulses from Organic Farm",
     price:"150",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'8'
 },
 {
@@ -94,6 +105,7 @@ const products=[{
     name:"Wheat from Organic Farm",
     price:"340",
     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, cupiditate perspiciatis. Maiores vitae, tenetur, eligendi id nulla autem, maxime sequi totam nostrum quae delectus! Quod, temporibus. Cumque neque nobis deleniti.",
+    reviewList:[],
     id:'9'
 }
 ]
@@ -150,10 +162,30 @@ export const ProductSlice=createSlice({
             
             else 
             state.currentProducts=state.products.filter((obj)=>obj.category===action.payload)
+        },
+
+        addReview :(state,action)=>{
+
+            state.products=state.products.map(
+                (obj)=>{
+                    if(obj.id!=action.payload.id)
+                    return obj;
+                    else
+                    {
+                        const updatedReview=[...obj.reviewList,{name:action.payload.name,email:action.payload.email,review:action.payload.review}]
+                        const temp={
+                            ...obj,reviewList:updatedReview
+                        }
+
+                        return temp;
+                        
+                    }
+                }
+            )
         }
     }
 })
 
-export const {performFilter,searchProducts,sortProducts,setCurrentByCategory}=ProductSlice.actions
+export const {performFilter,searchProducts,sortProducts,setCurrentByCategory,addReview}=ProductSlice.actions
 
 export default ProductSlice.reducer

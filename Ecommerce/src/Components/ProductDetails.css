@@ -9,3 +9,24 @@
 .ProductDetails-container .box1 .product-details{
     width: 500px;
 }
+.ProductDetails-container .review{
+    width: 1100px;
+    height: 200px;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+.ProductDetails-container .add-review{
+
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    padding: 50px 15px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
