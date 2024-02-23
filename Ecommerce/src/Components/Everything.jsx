@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import SearchBar from '../Utility_Components/SearchBar';
 import { performFilter, searchProducts, setCurrentByCategory, sortProducts } from '../Features/ProductSlice';
+import { Link } from 'react-router-dom';
 
 function Everything(){
 
@@ -61,12 +62,14 @@ function Everything(){
         <div className="right" >
             {
                 products.map((obj)=>(
-                <div className="card" key={obj.id}>
+                    <Link to={String(obj.id)} key={obj.id}>
+                <div className="card" >
                 <img src={obj.url}/>
                 <h4 style={{margin:'5px 0px',padding:'0px'}}>{obj.category}</h4>
                 <h2 style={{margin:'10px 0px',padding:'0px'}}>{obj.name}</h2>
                 <h3 style={{margin:'0px',padding:'0px'}}>Rs. {obj.price}</h3>
                 </div>
+                    </Link>
                 ))
             }
             
