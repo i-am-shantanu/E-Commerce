@@ -60,7 +60,7 @@ flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#a3e635;
+    /* background-color:#a3e635; */
     transition: background-color 0.2s ease-in;
     margin-bottom: 25px;
     text-wrap: wrap;
