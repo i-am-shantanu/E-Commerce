@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import SearchBar from '../Utility_Components/SearchBar';
 import { performFilter, searchProducts, setCurrentByCategory, sortProducts } from '../Features/ProductSlice';
-
+import { Link } from 'react-router-dom';
 function Groceries(){
     const[rangeMax,setRangeMax]=useState(400)
     const products=useSelector(state=>state.products.currentProducts)
@@ -22,7 +22,7 @@ function Groceries(){
         let maxprice=Number(e.target.value)
         setRangeMax(maxprice);
         console.log(maxprice);
-        dispatch(performFilter({category:"Groceries",maxprice}));
+        dispatch(performFilter({category:"all",maxprice}));
     }
 
     function handleSelector(e){
@@ -33,7 +33,7 @@ function Groceries(){
     function handleSearch(e){
         
         console.log(e);
-        dispatch(searchProducts({category:'Groceries',text:e}))
+        dispatch(searchProducts({category:'all',text:e}))
     }
     return(
         <>
@@ -60,23 +60,24 @@ function Groceries(){
         <div className="right" >
             {
                 products.map((obj)=>(
-                <div className="card" key={obj.id}>
+                    <Link to={String(obj.id)} key={obj.id}>
+                <div className="card" >
                 <img src={obj.url}/>
                 <h4 style={{margin:'5px 0px',padding:'0px'}}>{obj.category}</h4>
                 <h2 style={{margin:'10px 0px',padding:'0px'}}>{obj.name}</h2>
                 <h3 style={{margin:'0px',padding:'0px'}}>Rs. {obj.price}</h3>
                 </div>
+                    </Link>
                 ))
             }
             
 
         </div>
         </div>
-        <div className="footer">
 
-        </div>
 
         </>
     )
 }
 export default Groceries
+

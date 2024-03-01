@@ -1,4 +1,4 @@
-import { createSlice,current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const products=[{
     url:"https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted.jpg",

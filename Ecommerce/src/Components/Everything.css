@@ -70,6 +70,8 @@ flex-shrink: 0;
 }
 
 .everything-container .right .card:hover{
-    background-color:#3f6212;
-    color: white;
+    background-color:#C7D3BF;
+    /* color: white; */
 }
+
+/* #C7D3BF */

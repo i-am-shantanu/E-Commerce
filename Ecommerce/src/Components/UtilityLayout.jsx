@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 
-function EverythingLayout(){
+function UtilityLayout(){
 
     return(
         <>
@@ -8,4 +8,4 @@ function EverythingLayout(){
         </>
     )
 }
-export default EverythingLayout
+export default UtilityLayout

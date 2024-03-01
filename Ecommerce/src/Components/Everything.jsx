@@ -76,9 +76,7 @@ function Everything(){
 
         </div>
         </div>
-        <div className="footer">
 
-        </div>
 
         </>
     )

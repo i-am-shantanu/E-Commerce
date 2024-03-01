@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import {  useParams } from "react-router-dom"
 import { addReview } from '../Features/ProductSlice'
 import profile from '../assets/_avatar.jpg'
+import { addItems } from '../Features/CartSlice'
 
 
 function ProductDetails(){
@@ -12,7 +13,7 @@ console.log(typeof id)
 const currentProducts=useSelector(state=>state.products.products)
 console.log(currentProducts)
 let [target]=currentProducts.filter((obj)=>obj.id===id);
-
+const cart=useSelector(state=>state.cart.items);
 const [input,setInput]=useState(1);
 const [review,setReview]=useState("");
 const [name,setName]=useState("");
@@ -20,17 +21,12 @@ const [email,setEmail]=useState("");
 console.log(target);
 const buttonStyle={width:'250px',borderRadius:'15px',backgroundColor:'green',color:'white',padding:'5px',fontSize:'larger',marginBottom:'15px'};
 
-useEffect(
-    ()=>{
-        console.log(input);
-    },
-    [input]
-)
+useEffect(()=>{
 
-useEffect(
-    ()=>{console.log(target.reviewList)},
-    [currentProducts]
-)
+    
+    console.log(cart);
+
+},[cart])
 const dispatch=useDispatch();
 function handlesubmit(e)
 {
@@ -52,7 +48,16 @@ function handlesubmit(e)
 }
 
 function handleAddToCart(e)
-{
+{   
+    const obj = {
+        quantity:input,
+        product:{
+            ...target
+        }
+    }
+
+    dispatch(addItems(obj));
+    setInput(0);
 
 }
     return(
