@@ -40,13 +40,20 @@ export const CartSlice=createSlice(
                         if(obj.product.id!=action.payload.product.id)
                         return obj;
                         else
-                        return {...obj,quantity:obj.quantity+action.payload.quantity};
+                        {
+                            state.total=state.total + action.payload.quantity * Number(obj.price);
+                            return {...obj,quantity:obj.quantity+action.payload.quantity};
+                        }
                     
 
                     })
                 }
                 else
-                state.items.push(action.payload);
+                {
+                    state.total=state.total+action.payload.quantity * Number(action.payload.product.price);
+                    state.items.push(action.payload);
+                }
+                
 
             }
 
