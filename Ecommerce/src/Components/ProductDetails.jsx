@@ -57,7 +57,7 @@ function handleAddToCart(e)
     }
 
     dispatch(addItems(obj));
-    setInput(0);
+    setInput(1);
 
 }
     return(
