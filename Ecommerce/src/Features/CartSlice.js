@@ -55,6 +55,33 @@ export const CartSlice=createSlice(
                 }
                 
 
+            },
+
+            incrementCartItem : (state,action) =>{
+
+                state.items= state.items.map((obj)=>{
+                    if(obj.product.id!=action.payload)
+                    return obj;
+                    else 
+                    return {...obj,quantity:obj.quantity+1};
+                })
+            },
+
+            decrementCartItem : (state,action) =>{
+
+                state.items=state.items.map((obj)=>{
+
+                    if(obj.product.id!=action.payload)
+                    return obj;
+                    else
+                    return {...obj,quantity:obj.quantity-1};
+                })
+
+            },
+
+            removeCartItem : (state,action) =>{
+
+                state.items=state.items.filter((obj)=>(obj.product.id!=action.payload));
             }
 
 
@@ -63,5 +90,5 @@ export const CartSlice=createSlice(
     }
 )
 
-export const{addItems}=CartSlice.actions;
+export const{addItems,incrementCartItem,removeCartItem,decrementCartItem}=CartSlice.actions;
 export default CartSlice.reducer;
