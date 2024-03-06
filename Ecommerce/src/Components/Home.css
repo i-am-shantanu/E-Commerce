@@ -1,14 +1,15 @@
 .home-container{
     margin-top: 80px;
     padding-top: 150px;
-    padding-left: 150px;
-    padding-right: 150px;
+    background-color: white;
 }
 .home-container .hero-image{
     height: 80vh;
+    padding-right: 150px;
     background-image: url('https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2021/03/organic-products-hero.png');
     background-size: auto auto;
     background-repeat: no-repeat;
+    background-position: 150px 0px;
 }
 
 .home-container .hero-image .content{
@@ -17,4 +18,75 @@
 }
 .home-container .hero-image .content>*{
     margin-bottom: 30px;
+}
+
+.home-container .banner{
+    display: flex;
+    padding: 40px 100px;
+    justify-content: space-around;
+    background-color: #111111;
+    color: white;
+    margin-bottom: 100px;
+}
+.home-container .banner>div{
+    text-align: center;
+    font-size: large;
+    background-color: #494b51;
+    height: 150px;
+    width: 300px;
+    border-radius: 5px;
+
+}
+.home-container .banner img{
+    margin-top: 20px;
+    height: 35px;
+}
+.home-container .banner>div>*{
+    margin-bottom: 7px;
+}
+.home-container .banner .main{
+    font-size: 25px;
+    font-weight: bolder;
+}
+.home-container .heading{
+    font-size: 40px;
+    font-weight: bold;
+   text-align: center; 
+}
+.home-container .heading>* {
+    margin-bottom: 15px;
+}
+
+.home-container .products {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 100px;
+    min-width: 1200px;
+
+}
+.home-container .products .card{
+    text-align: center;
+}
+.home-container .products .card img{
+
+height: 250px;
+margin-bottom: 10px;
+}
+.home-container .products .card .category{
+    color: grey;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.home-container .products .card .name{
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.home-container .products .card .price{
+    font-size: medium;
+    font-weight: bold;
+}
+.home-container .products>*{
+    flex-shrink: 0;
 }
