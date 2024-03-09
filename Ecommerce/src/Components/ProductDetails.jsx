@@ -9,16 +9,16 @@ import { addItems } from '../Features/CartSlice'
 
 function ProductDetails(){
 const {id}=useParams()
-console.log(typeof id)
+
 const currentProducts=useSelector(state=>state.products.products)
-console.log(currentProducts)
 let [target]=currentProducts.filter((obj)=>obj.id===id);
 const cart=useSelector(state=>state.cart.items);
 const [input,setInput]=useState(1);
 const [review,setReview]=useState("");
 const [name,setName]=useState("");
 const [email,setEmail]=useState("");
-console.log(target);
+const [message,setMessage]=useState("");
+
 const buttonStyle={width:'250px',borderRadius:'15px',backgroundColor:'green',color:'white',padding:'5px',fontSize:'larger',marginBottom:'15px'};
 
 useEffect(()=>{
@@ -58,12 +58,16 @@ function handleAddToCart(e)
 
     dispatch(addItems(obj));
     setInput(1);
-
+    setMessage("Item added to cart!");
 }
     return(
     <>
     <div className="ProductDetails-container">
+    <div className="message">
+                <h2>{message}</h2>
+    </div>
         <div className="box1">
+
             <div className="product-image">
             <img src={target.url} style={{height:'500px'}}/>
             </div>

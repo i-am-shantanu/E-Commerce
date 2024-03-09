@@ -3,6 +3,23 @@
     padding-top: 150px;
     background-color: white;
 }
+.home-container button{
+    
+    width:200px;
+    height: 50px;
+    background-color: #6a9739;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    border: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color: 
+    #8bc34a;
+}
 .home-container .hero-image{
     height: 80vh;
     padding-right: 150px;
@@ -50,7 +67,7 @@
 }
 .home-container .heading{
     font-size: 40px;
-    font-weight: bold;
+    font-weight:bold;
    text-align: center; 
 }
 .home-container .heading>* {
@@ -62,6 +79,7 @@
     justify-content: space-around;
     padding: 50px 100px;
     min-width: 1200px;
+    margin-bottom: 100px;
 
 }
 .home-container .products .card{
@@ -88,5 +106,123 @@ margin-bottom: 10px;
     font-weight: bold;
 }
 .home-container .products>*{
+    flex-shrink: 0;
+}
+.home-container .links{
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 150px;
+    background-color:#f8f5f4;
+}
+.home-container .links .card{
+    width: 220px;
+    height: 250px;
+    background-color: #ffffff;
+    padding: 50px;
+    color: grey;
+    font-size: medium;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* */
+}
+.home-container .links .card>.title{
+    font-size: 20pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+    
+}
+.home-container .links .card>button{
+    width: 120px;
+    height: 40px;
+    margin-top: 20px;
+   
+}
+.lemon{
+    background-image: url("https://rukminim2.flixcart.com/image/416/416/kevpwnk0/plant-seed/9/m/b/35-xii-977-organic-fruit-seeds-yellow-lemon-tree-vibex-original-imafvhftuzzu9e9h.jpeg?q=70&crop=false");
+    background-repeat: no-repeat;
+    background-size: 180px;
+    background-position: 120px 160px;
+}
+.lettuce{
+    background-image: url("https://onempa.com/wp-content/uploads/2023/07/Butterhead-lettuce-1536x1024.jpg");
+    background-repeat: no-repeat;
+    background-size: 250px;
+    background-position: 80px 150px;
+}
+.grams{
+    background-image: url("https://organic-store.starterwp.com/wp-content/uploads/sites/4/2019/07/product03-free-img.jpg");
+    background-repeat: no-repeat;
+    background-size: 250px;
+    background-position: 60px 170px;
+}
+.leaf{
+    text-align: center;
+}
+.leaf img{
+    position: relative;
+    top: 50px;
+    height: 80px;
+}
+.home-container .banner2{
+    height: 150px;
+    padding: 0px 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30pt;
+    color: white;
+    font-weight: bold;
+    background-color:#111111 ;
+}
+.home-container .reviews .card{
+    text-align: center;
+    color: black;
+    font-size: large;
+}
+.home-container .reviews .card .text{
+
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+
+}
+.home-container .reviews .background{
+    height: 440px;
+    width: 400px;
+    position: relative;
+    bottom: 100px;
+    background-image: url('https://media.istockphoto.com/id/589415708/photo/fresh-fruits-and-vegetables.jpg?s=612x612&w=0&k=20&c=aBFGUU-98pnoht73co8r2TZIKF3MDtBBu9KSxtxK_C0=');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding: 0px;
+    
+}
+
+.home-container .reviews .target{
+    
+    backdrop-filter: blur(3px);
+    /* backdrop-filter: grayscale(20%); */
+    padding: 62px;
+    border-radius: 10px;
+}
+.home-container .reviews{
+    padding-top: 50px;
+    background-color:white;
+    
+}
+.links.reviewLinks{
+    background-color: white;
+}
+.featured-brands{
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 50px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.featured-brands>*{
     flex-shrink: 0;
 }

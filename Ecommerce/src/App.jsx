@@ -29,7 +29,10 @@ function App() {
 
     createRoutesFromElements(
       <Route path='/' element={<Layout/>}>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<UtilityLayout/>}>
+        <Route index element={<Home/>}/>
+        <Route path=':id' element={<ProductDetails/>}/>
+          </Route>
         <Route path='everything' element={<UtilityLayout/>}>
           <Route index element={<Everything/>}/>
           <Route path=':id' element={<ProductDetails/>}/>
