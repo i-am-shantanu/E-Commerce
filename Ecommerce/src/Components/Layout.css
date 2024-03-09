@@ -36,3 +36,40 @@
     align-items: center;
 
 }
+
+.footers {
+display: flex;
+padding: 30px 100px;
+min-width: 1000px;
+background-color: 
+#001524;
+color: 
+#ffffffa8;
+font-size: large;
+}
+.footers h2{
+    color: white;
+}
+.footers>div{
+    height: 500px;
+}
+.footers .left{
+    width: 30%;
+    /* background-color: red; */
+    padding-right: 150px;
+}
+.footers .middle{
+    width:30%;
+    /* background-color: blue; */
+}
+.footers .middle>div{
+    margin-bottom: 5px;
+}
+.footers .right{
+    width:30%;
+    /* background-color: aqua; */
+    padding-right: 100px;
+}
+.footers .right>div{
+    margin-bottom: 5px;
+}

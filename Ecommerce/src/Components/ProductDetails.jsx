@@ -59,6 +59,9 @@ function handleAddToCart(e)
     dispatch(addItems(obj));
     setInput(1);
     setMessage("Item added to cart!");
+    setTimeout(()=>{
+        setMessage("");
+    },5000)
 }
     return(
     <>
