@@ -17,13 +17,13 @@ function Cart(){
     function incrementQuantity(e){
 
         // implement function to increment the quantity of the target stock ny 1
-        console.log(e.target.parentElement.parentElement.id);
-        dispatch(incrementCartItem(e.target.parentElement.parentElement.id));
+        console.log(e.target.parentElement.parentElement.parentElement.id);
+        dispatch(incrementCartItem(e.target.parentElement.parentElement.parentElement.id));
     }
 
     function decrementQuantity(e){
 
-        const id=e.target.parentElement.parentElement.id;
+        const id=e.target.parentElement.parentElement.parentElement.id;
 
         for(let i=0;i<cartItems.length;i++)
         {
@@ -74,9 +74,12 @@ function Cart(){
                                     Rs. {obj.product.price}
                                 </td>
                                 <td className='quantity-cell'>
-                                    <button style={{width:'25px'}} onClick={incrementQuantity}>+</button>
+                                    <div style={{display:'flex',alignItems:'center',width:'100px',justifyContent:'space-evenly'}}>
+                                    <button style={{width:'25px',height:'25px'}} onClick={incrementQuantity}>+</button>
                                     <input type='text' value={obj.quantity} readOnly style={{width:'20px'}}/>
-                                    <button style={{width:'25px'}} onClick={decrementQuantity}>-</button>
+                                    <button style={{width:'25px',height:'25px'}} onClick={decrementQuantity}>-</button>    
+                                    </div>
+
                                 </td>
                                 <td className='subtotal-cell'>
                                     {obj.quantity*Number(obj.product.price)}
@@ -88,6 +91,38 @@ function Cart(){
                 }
             </tbody>
             </table>
+
+            <div className="total">
+                <table>
+                    <th style={{width:'100%'}}>Cart totals</th>
+                    <tbody>
+                        
+                        <tr>
+                            <td>
+                            <div>subtotal</div>
+                            <div>{total}</div>           
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <div>Discount</div>
+                            <div> 0.00</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <div>Total</div>
+                            <div>{total}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{border:'none',justifyContent:'center'}}>
+                            <button>Proceed To CheckOut</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         </>
     )

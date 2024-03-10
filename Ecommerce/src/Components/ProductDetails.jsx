@@ -66,6 +66,7 @@ function handleAddToCart(e)
         setMessage("");
     },5000)
 }
+
     return(
     <>
     <div className="ProductDetails-container">

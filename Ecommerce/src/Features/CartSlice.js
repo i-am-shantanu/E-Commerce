@@ -28,6 +28,9 @@ export const CartSlice=createSlice(
 
             addItems : (state,action) => {
 
+                if(action.payload.quantity<1 || !action.payload.quantity)
+                return;
+
                 function checkItemInCart(obj)
                 {
                     return action.payload.product.id===obj.product.id;
@@ -41,7 +44,7 @@ export const CartSlice=createSlice(
                         return obj;
                         else
                         {
-                            state.total=state.total + action.payload.quantity * Number(obj.price);
+                            state.total=state.total + action.payload.quantity * Number(obj.product.price);
                             return {...obj,quantity:obj.quantity+action.payload.quantity};
                         }
                     
@@ -62,9 +65,14 @@ export const CartSlice=createSlice(
                 state.items= state.items.map((obj)=>{
                     if(obj.product.id!=action.payload)
                     return obj;
-                    else 
-                    return {...obj,quantity:obj.quantity+1};
+                    else
+                    {
+                        state.total=state.total+Number(obj.product.price);
+                        return {...obj,quantity:obj.quantity+1};
+                    }
+                    
                 })
+                
             },
 
             decrementCartItem : (state,action) =>{
@@ -73,8 +81,12 @@ export const CartSlice=createSlice(
 
                     if(obj.product.id!=action.payload)
                     return obj;
-                    else
-                    return {...obj,quantity:obj.quantity-1};
+                    else{
+
+                        state.total=state.total-Number(obj.product.price);
+                        return {...obj,quantity:obj.quantity-1};
+                    }
+                    
                 })
 
             },
