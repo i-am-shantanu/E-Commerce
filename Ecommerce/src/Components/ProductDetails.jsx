@@ -27,6 +27,9 @@ useEffect(()=>{
     console.log(cart);
 
 },[cart])
+useEffect(()=>{
+    console.log("rendered");
+},[]);
 const dispatch=useDispatch();
 function handlesubmit(e)
 {
