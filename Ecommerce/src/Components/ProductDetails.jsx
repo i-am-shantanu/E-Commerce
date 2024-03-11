@@ -1,5 +1,5 @@
 import './ProductDetails.css'
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {  useParams } from "react-router-dom"
 import { addReview } from '../Features/ProductSlice'
@@ -11,7 +11,9 @@ function ProductDetails(){
 const {id}=useParams()
 
 const currentProducts=useSelector(state=>state.products.products)
+
 let [target]=currentProducts.filter((obj)=>obj.id===id);
+
 const cart=useSelector(state=>state.cart.items);
 const [input,setInput]=useState(1);
 const [review,setReview]=useState("");
@@ -31,7 +33,8 @@ useEffect(()=>{
     console.log("rendered");
 },[]);
 const dispatch=useDispatch();
-function handlesubmit(e)
+const handlesubmit =useCallback(
+    (e)=>
 {
     
     dispatch(
@@ -49,23 +52,29 @@ function handlesubmit(e)
     setReview("");
 
 }
+,[id,name,review,email]
+)
+const handleAddToCart=useCallback(
+    ()=>{
 
-function handleAddToCart(e)
-{   
-    const obj = {
-        quantity:input,
-        product:{
-            ...target
+        const obj = {
+            quantity:input,
+            product:{
+                ...target
+            }
         }
-    }
+    
+        dispatch(addItems(obj));
+        setInput(1);
+        setMessage("Item added to cart!");
+        setTimeout(()=>{
+            setMessage("");
+        },5000)
+    
+    },
+    [input]
+)
 
-    dispatch(addItems(obj));
-    setInput(1);
-    setMessage("Item added to cart!");
-    setTimeout(()=>{
-        setMessage("");
-    },5000)
-}
 
     return(
     <>

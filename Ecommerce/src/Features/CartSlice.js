@@ -92,7 +92,11 @@ export const CartSlice=createSlice(
             },
 
             removeCartItem : (state,action) =>{
-
+                
+                state.items.forEach((obj)=>{
+                    if(obj.product.id===action.payload)
+                    state.total=state.total-(obj.quantity*Number(obj.product.price))
+                })
                 state.items=state.items.filter((obj)=>(obj.product.id!=action.payload));
             }
 
