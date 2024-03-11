@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { memo,useState } from "react";
 
 function SearchBar({
     handleSearch
 }){
 
+    console.log("search Bar Rendered !!");
     const[searchValue,setSearchValue]=useState("");
     
 
@@ -37,4 +38,4 @@ function SearchBar({
         </>
     )
 }
-export default SearchBar
+export default memo(SearchBar)

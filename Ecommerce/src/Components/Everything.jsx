@@ -1,5 +1,5 @@
 import './Everything.css'
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import SearchBar from '../Utility_Components/SearchBar';
 import { performFilter, searchProducts, setCurrentByCategory, sortProducts } from '../Features/ProductSlice';
@@ -14,10 +14,7 @@ function Everything(){
 
     useEffect(()=>{dispatch(setCurrentByCategory('all'))},[]);
 
-    function handleSearch(e){
-        e.preventDefault();
-        console.log(searchValue);
-    }
+    
 
     function handleSlider(e){
 
@@ -31,12 +28,18 @@ function Everything(){
         console.log(e.target.value);
         dispatch(sortProducts(e.target.value));
     }
-
-    function handleSearch(e){
-        
+const handleSearch=useCallback(
+    (e)=>
+    {
         console.log(e);
         dispatch(searchProducts({category:'all',text:e}))
-    }
+    },[]
+)
+    // function handleSearch(e){
+        
+    //     console.log(e);
+    //     dispatch(searchProducts({category:'all',text:e}))
+    // }
     return(
         <>
         <div className="everything-container">

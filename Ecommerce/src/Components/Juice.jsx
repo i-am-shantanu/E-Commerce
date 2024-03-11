@@ -1,5 +1,5 @@
 import './Everything.css'
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import SearchBar from '../Utility_Components/SearchBar';
 import { performFilter, searchProducts, setCurrentByCategory, sortProducts } from '../Features/ProductSlice';
@@ -12,10 +12,7 @@ function Juice(){
 
     useEffect(()=>{dispatch(setCurrentByCategory('Juice'))},[]);
 
-    function handleSearch(e){
-        e.preventDefault();
-        console.log(searchValue);
-    }
+    
 
     function handleSlider(e){
 
@@ -30,11 +27,13 @@ function Juice(){
         dispatch(sortProducts(e.target.value));
     }
 
-    function handleSearch(e){
-        
-        console.log(e);
-        dispatch(searchProducts({category:'all',text:e}))
-    }
+    const handleSearch = useCallback(
+        (e)=>{
+            console.log(e);
+            dispatch(searchProducts({category:'Juice',text:e}))
+        },[]
+    )
+
     return(
         <>
         <div className="everything-container">
